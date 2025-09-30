@@ -1,0 +1,152 @@
+===============================================================
+MANUAL INTERNO DE PROCEDIMIENTOS Y DATOS
+NOTARÍA PÚBLICA 137 DE LA CIUDAD DE MÉXICO
+===============================================================
+
+FECHA DE ACTUALIZACIÓN: 08 de agosto de 2025
+
+=== SECCIÓN 1: DATOS GENERALES DE LA NOTARÍA ===
+
+Nombre Oficial: Notaría Pública Número 137 de la Ciudad de México.
+Notario Titular: Lic. Armando Fuentes Reza.
+Dirección: Avenida de la Reforma 222, Piso 10, Colonia Juárez, Alcaldía Cuauhtémoc, C.P. 06600, CDMX.
+Teléfono: 55-1234-5678
+Fecha de Fundación: 15 de marzo de 1998.
+
+Misión: Brindar certeza y seguridad jurídica al patrimonio y actos legales de nuestros clientes, actuando con imparcialidad, profesionalismo y estricto apego a la ley.
+
+
+=== SECCIÓN 2: PERSONAL Y ESTRUCTURA ORGANIZACIONAL ===
+
+---
+Nombre: Lic. Armando Fuentes Reza
+Puesto: Notario Titular
+Responsabilidades: Ejerce la fe pública, firma de escrituras, asesoría legal de alto nivel, supervisión general de todos los casos. Responsable final de todos los instrumentos.
+Salario Mensual Bruto: $180,000.00 MXN
+
+---
+Nombre: Lic. Sofía Navarro Gómez
+Puesto: Abogada Senior - Jefa de Área Inmobiliaria y Corporativa
+Responsabilidades: Redacción y revisión de proyectos de escrituras de compraventa, donaciones, constitución de sociedades y poderes. Atención directa a clientes para casos complejos. Supervisa a los pasantes.
+Salario Mensual Bruto: $75,000.00 MXN
+
+---
+Nombre: Lic. Carlos Valdés Torres
+Puesto: Abogado Dictaminador - Área de Sucesiones
+Responsabilidades: Especialista en trámites sucesorios, tanto testamentarios como intestamentarios. Elaboración de testamentos, inventarios y avalúos, y proyectos de partición de herencia.
+Salario Mensual Bruto: $68,000.00 MXN
+
+---
+Nombre: Andrea Jiménez Soto
+Puesto: Pasante de Derecho
+Responsabilidades: Apoyo en la búsqueda de documentos, integración de expedientes, gestión de trámites ante el Registro Público de la Propiedad y el Archivo General de Notarías.
+Salario Mensual Bruto: $12,000.00 MXN
+
+---
+Nombre: Ricardo Salas Mendoza
+Puesto: Pasante de Derecho
+Responsabilidades: Elaboración de borradores de contratos sencillos, seguimiento de folios, apoyo en la redacción de actas constitutivas bajo supervisión.
+Salario Mensual Bruto: $12,000.00 MXN
+
+---
+Nombre: Mónica Beltrán Cortés
+Puesto: Coordinadora Administrativa
+Responsabilidades: Facturación, cobranza, pago a proveedores, manejo de la contabilidad interna, recursos humanos y administración general de la oficina.
+Salario Mensual Bruto: $45,000.00 MXN
+
+---
+Nombre: Javier Orozco Lima
+Puesto: Recepcionista y Gestor
+Responsabilidades: Atención telefónica y presencial a clientes, agendar citas, manejo de paquetería, gestoría de trámites menores.
+Salario Mensual Bruto: $18,000.00 MXN
+
+
+=== SECCIÓN 3: PRINCIPIOS FUNDAMENTALES DE DERECHO NOTARIAL ===
+
+* Fe Pública: Es la presunción de veracidad que el Estado otorga a los actos y hechos que constan en los instrumentos autorizados por el notario. El notario actúa por delegación del Estado.
+
+* Principio de Rogación: El notario no puede actuar de oficio. Su intervención debe ser siempre solicitada por las partes interesadas (los rogantes).
+
+* Principio de Inmediación: El notario debe estar en contacto directo y personal con las partes. Debe escuchar, identificar y percibir la voluntad de los otorgantes sin intermediarios.
+
+* Asesoramiento y Deber de Consejo: El notario tiene la obligación de asesorar a las partes, explicándoles el valor y las consecuencias legales de los actos que desean celebrar. Debe aconsejarles sobre la mejor forma jurídica para alcanzar sus fines lícitos.
+
+
+=== SECCIÓN 4: CATÁLOGO DE SERVICIOS Y CONTRATOS ===
+
+---
+ÁREA: DERECHO INMOBILIARIO
+
+1. Contrato de Compraventa de Inmueble
+Descripción: Acto jurídico mediante el cual una parte (vendedor) transfiere la propiedad de un bien inmueble a otra (comprador) a cambio de un precio cierto y en dinero.
+Requisitos Generales: Título de propiedad, identificaciones oficiales, constancias de no adeudo de predial y agua, avalúo, certificados de libertad de gravamen.
+
+Casos de Ejemplo (Registro Interno):
+* Expediente 2024-01-15A: Compraventa.
+  Cliente Vendedor: Inmobiliaria Sol de México, S.A. de C.V.
+  Cliente Comprador: Armando Fuentes Reza (El Notario actuó en carácter personal antes de una donación).
+  Inmueble: Avenida de la Reforma 222, Piso 10, CDMX.
+  Monto: $24,500,000.00 MXN.
+  Fecha de firma: 15 de enero de 2024.
+  Abogado responsable: Lic. Sofía Navarro Gómez.
+
+* Expediente 2024-03-02B: Compraventa con crédito hipotecario.
+  Cliente Vendedor: Familia Martínez Rojas.
+  Cliente Comprador: Laura Paredes Solís.
+  Inmueble: Calle Amores 1120, Colonia Del Valle, CDMX.
+  Monto: $8,200,000.00 MXN.
+  Institución de Crédito: BBVA México, S.A.
+  Fecha de firma: 02 de marzo de 2024.
+
+2. Contrato de Donación
+Descripción: Contrato por el cual una persona (donante) transfiere gratuitamente la propiedad de un bien a otra (donatario).
+Requisitos Generales: Similares a la compraventa, pero se debe acreditar la relación de parentesco para posibles exenciones de impuestos.
+
+Casos de Ejemplo (Registro Interno):
+* Expediente 2024-02-10C: Donación entre cónyuges.
+  Cliente Donante: Armando Fuentes Reza.
+  Cliente Donatario: Sra. Elena C. de Fuentes.
+  Inmueble: Avenida de la Reforma 222, Piso 10, CDMX.
+  Valor del Inmueble: $24,500,000.00 MXN.
+  Fecha de firma: 10 de febrero de 2024.
+
+---
+ÁREA: DERECHO CORPORATIVO
+
+1. Constitución de Sociedad Anónima (S.A.)
+Descripción: Creación de una nueva persona moral con fines de lucro, cuyo capital está dividido en acciones.
+Requisitos Generales: Permiso de uso de denominación social de la Secretaría de Economía, identificaciones de los socios, definición de estatutos sociales (objeto social, capital, administración).
+
+Casos de Ejemplo (Registro Interno):
+* Expediente 2024-05-20D: Constitución de Sociedad.
+  Nombre de la Sociedad: "Soluciones Tecnológicas del Valle, S.A."
+  Socios Fundadores: Miguel Herrera, Claudia Sheinbaum Pardo (nombre ficticio para ejemplo).
+  Capital Social: $50,000.00 MXN.
+  Fecha de firma: 20 de mayo de 2024.
+  Abogado responsable: Lic. Sofía Navarro Gómez.
+
+2. Poder General para Pleitos y Cobranzas
+Descripción: Instrumento por el cual una persona (poderdante) otorga a otra (apoderado) facultades amplias para representarla en juicios y realizar cobros.
+Requisitos Generales: Identificación oficial del poderdante.
+
+Casos de Ejemplo (Registro Interno):
+* Expediente 2024-06-11E: Otorgamiento de Poder.
+  Poderdante: "Constructora del Sur, S.A. de C.V."
+  Apoderado: Lic. Mateo Domínguez.
+  Fecha de firma: 11 de junio de 2024.
+
+---
+ÁREA: DERECHO SUCESORIO
+
+1. Testamento Público Abierto
+Descripción: Acto personalísimo, revocable y libre, por el cual una persona capaz dispone de sus bienes y derechos para después de su muerte.
+Requisitos Generales: Identificación oficial del testador, datos generales completos, no requiere testigos salvo casos especiales.
+
+Casos de Ejemplo (Registro Interno):
+* Expediente 2024-01-30F: Testamento.
+  Testador: Roberto Gómez Bolaños (nombre ficticio para ejemplo).
+  Herederos Designados: Confidencial.
+  Fecha de otorgamiento: 30 de enero de 2024.
+  Abogado responsable: Lic. Carlos Valdés Torres.
+
+FIN DEL DOCUMENTO
