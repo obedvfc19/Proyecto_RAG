@@ -26,7 +26,7 @@ Sigue estos pasos para poner en marcha el proyecto.
 
 1.  **Clonar el Repositorio**
     ```bash
-    git clone <URL-de-tu-repositorio>
+    git clone <https://github.com/obedvfc19/Proyecto_RAG.git>
     cd <nombre-de-la-carpeta-del-repositorio>
     ```
 
