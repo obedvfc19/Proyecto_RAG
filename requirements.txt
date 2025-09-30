@@ -1,0 +1,7 @@
+gradio
+langchain
+langchain-chroma
+langchain-community
+langchain-ollama
+pypdf
+rank_bm25
