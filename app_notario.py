@@ -1,7 +1,9 @@
 import gradio as gr
 import logging
 import sys
+import os
 import re
+import subprocess
 
 # Importaciones para Búsqueda Híbrida
 from langchain.retrievers import EnsembleRetriever
@@ -78,7 +80,7 @@ contextualize_q_system_prompt = """Dada una conversación y una última pregunta
 contextualize_q_prompt = ChatPromptTemplate.from_messages([("system", contextualize_q_system_prompt), MessagesPlaceholder(variable_name="chat_history"), ("human", "{input}")])
 history_aware_retriever = create_history_aware_retriever(llm, retriever, contextualize_q_prompt)
 
-qa_system_prompt = """Eres NotarIA, un asistente legal de alta precisión. Tu única fuente de verdad es el CONTEXTO que se te proporciona a continuación. Está estrictamente prohibido usar cualquier conocimiento externo o pre-entrenado. Responde la PREGUNTA del usuario basándote exclusivamente en el CONTEXTO. Si la respuesta se encuentra en el CONTEXTO, al final de tu respuesta, DEBES citar tus fuentes incluyendo el nombre del archivo y el número de página que se encuentran en los metadatos. Por ejemplo: (Fuente: constitucion.pdf, página 15). Si la información no se encuentra en el CONTEXTO, debes responder EXACTAMENTE y únicamente con la frase: 'La información solicitada no se encuentra en los documentos que he procesado.'.
+qa_system_prompt = """Eres NotarIA, un asistente legal de alta precisión. Tu única fuente de verdad es el CONTEXTO que se te proporciona a continuación y no utilizar nada de conocimientos que esten fuera del promtp de contexto. Está estrictamente prohibido usar cualquier conocimiento externo o pre-entrenado. Responde la PREGUNTA del usuario basándote exclusivamente en el CONTEXTO. Si la respuesta se encuentra en el CONTEXTO, al final de tu respuesta, DEBES citar tus fuentes incluyendo el nombre del archivo y el número de página que se encuentran en los metadatos. Por ejemplo: (Fuente: constitucion.pdf, página 15). Si la información no se encuentra en el CONTEXTO, debes responder EXACTAMENTE y únicamente con la frase: 'La información solicitada no se encuentra en los documentos que he procesado.'.
 
 CONTEXTO:
 {context}"""
@@ -120,27 +122,111 @@ def responder(message, history, session_id="my_session"):
     
     return response["answer"]
 
+import subprocess
 
-# --- CREACIÓN DE LA INTERFAZ DE GRADIO (ACTUALIZADA) ---
-interfaz = gr.ChatInterface(
-    fn=responder,
-    title="NotarIA 🧠 (Diseño Mejorado)",
-    description="Asistente legal para consulta de documentos. Potenciado por un sistema de búsqueda híbrida.",
-    chatbot=gr.Chatbot(
-        height=500, 
-        type='messages',
-        # Nota: Para los avatares, debe crear estos dos archivos de imagen en la misma carpeta.
-        avatar_images=("./user_avatar.png", "./bot_avatar.png") 
-    ),
-    theme=theme,
-    css=css_styles,
-    examples=[
-        ["¿Quién fue el cliente comprador en el expediente 2024-03-02B?"],
-        ["Soy un ciudadano extranjero y quiero comprar una casa en la playa, en Cancún."],
-        ["Si una persona es detenida, ¿cuáles son sus derechos mínimos durante el proceso?"]
-    ]
-)
+# --- ACTUALIZAR BASE VECTORIAL DESDE ARCHIVOS SUBIDOS ---
+def actualizar_vectordb_archivos(files):
+    """
+    Copia los archivos subidos a la carpeta ./documentos_fuente,
+    ejecuta la reconstrucción de la base vectorial y recarga Chroma.
+    """
+    import shutil
+    import subprocess
+    global vector_db, retriever
 
-# --- LANZAMIENTO DE LA APLICACIÓN ---
+    if not files:
+        return "No se cargaron archivos nuevos."
+
+    try:
+        # 1. Guardar los archivos en ./documentos_fuente
+        destino = "./documentos_fuente"
+        os.makedirs(destino, exist_ok=True)
+        nombres = []
+        for f in files:
+            nombre_destino = os.path.join(destino, os.path.basename(f.name))
+            shutil.copy(f.name, nombre_destino)
+            nombres.append(os.path.basename(f.name))
+
+        
+        
+        # 2. Ejecutar el script de creación de la base vectorial
+        script_path = os.path.join(os.path.dirname(__file__), "crear_vectordb_general.py")
+        resultado = subprocess.run(
+            [sys.executable, script_path],
+            cwd=os.path.dirname(script_path),
+            capture_output=True, text=True
+        )
+
+        logging.info("---- STDOUT crear_vectordb_general.py ----")
+        logging.info(resultado.stdout)
+        logging.error(resultado.stderr)
+        logging.info("------------------------------------------------")
+
+        if resultado.returncode == 0:
+            persist_dir = os.path.abspath("./chroma_db_final")
+            embeddings = OllamaEmbeddings(model="mxbai-embed-large")
+            vector_db = Chroma(persist_directory=persist_dir,
+                            embedding_function=embeddings)
+            semantic_retriever = vector_db.as_retriever(search_kwargs={"k": 2})
+            retriever = EnsembleRetriever(
+                retrievers=[bm25_retriever, semantic_retriever],
+                weights=[0.5, 0.5]
+            )
+            logging.info("Base vectorial actualizada y recargada correctamente.")
+            return f"{len(nombres)} archivo(s) agregado(s) y base vectorial actualizada con éxito."
+        else:
+            logging.error(f"Error al regenerar la base vectorial: {resultado.stderr}")
+            return f"Error en la actualización:\n{resultado.stderr}"
+
+        
+
+    except Exception as e:
+        logging.error(f"Error durante la carga de archivos: {e}")
+        return f"Error inesperado: {e}"
+    
+    
+# --- INTERFAZ CON PANEL LATERAL DE CARGA ---
+with gr.Blocks(theme=theme, css=css_styles, title="NotarIA 🧠 (Búsqueda Híbrida)") as interfaz:
+    gr.Markdown("## NotarIA — Asistente Legal Inteligente")
+
+    with gr.Row(equal_height=True):
+        # --- COLUMNA IZQUIERDA: SUBIR DOCUMENTOS ---
+        with gr.Column(scale=0.4):
+            gr.Markdown("### Cargar nuevos documentos")
+            file_upload = gr.File(
+                label="Arrastra o selecciona tus archivos (.pdf o .txt)",
+                file_count="multiple"
+            )
+            salida_carga = gr.Textbox(
+                label="Estado de actualización",
+                placeholder="Aquí se mostrará el resultado...",
+                lines=4,
+                interactive=False
+            )
+            # Cuando se cargan archivos → llama a la función actualizar_vectordb_archivos
+            file_upload.upload(fn=actualizar_vectordb_archivos,
+                               inputs=file_upload,
+                               outputs=salida_carga)
+
+        # --- COLUMNA DERECHA: CHAT PRINCIPAL ---
+        with gr.Column(scale=0.6):
+            chat = gr.ChatInterface(
+                fn=responder,
+                title=None,
+                description="Asistente legal para consulta de documentos. Potenciado por un sistema de búsqueda híbrida.",
+                chatbot=gr.Chatbot(
+                    height=500,
+                    type="messages",
+                    avatar_images=("./user_avatar.png", "./bot_avatar.png")
+                ),
+                examples=[
+                    ["¿Quién fue el cliente comprador en el expediente 2024-03-02B?"],
+                    ["Soy un ciudadano extranjero y quiero comprar una casa en la playa, en Cancún."],
+                    ["Si una persona es detenida, ¿cuáles son sus derechos mínimos durante el proceso?"]
+                ]
+            )
+
+
+# --- LANZAMIENTO DE LA APP ---
 if __name__ == "__main__":
     interfaz.launch()
